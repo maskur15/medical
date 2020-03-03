@@ -46,7 +46,8 @@
     </div>
     <!-- maps -->
     <div id="map">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d2482.432383990807!2d0.028213999961443994!3d51.52362882484525!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1423469959819" frameborder="0" style="border:0"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3638.191863454976!2d89.88861931494252!3d24.23506738435271!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fdfc7ee13f079d%3A0xbb08f4d7e29c2166!2sMBSTU%20Medical%20Centre!5e0!3m2!1sen!2sbd!4v1583235482051!5m2!1sen!2sbd"  frameborder="0" style="border:0"></iframe>
+        <!--iframe src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d2482.432383990807!2d0.028213999961443994!3d51.52362882484525!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1423469959819" frameborder="0" style="border:0"></iframe> -->
     </div>
     <div class="copy-right-grids">
         <div class="container">
