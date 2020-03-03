@@ -12,7 +12,8 @@
     </div>
     <!--- login ---->
     <!-- login -->
-    <div class="login">
+<jsp:include page="test.jsp"></jsp:include>
+    <!--div class="login">
         <div class="container">
             <h3>Register Here</h3>
             <p class="est">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
