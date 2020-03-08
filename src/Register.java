@@ -12,42 +12,50 @@ import java.util.Properties;
 import java.io.*;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpSession;
 
 import java.util.Random;
 
 @WebServlet(name = "Register")
 public class Register extends HttpServlet{
     //from,password,to,subject,message
+    final String from="sabilhasan2018@gmail.com";
+    final String pass="sormi00000";
+    final String sub="MBSTU_MEDICAL registration";
 
-    String mess;
     Random rand = new Random();
-    int rand_int=rand.nextInt(10000);
+    int rand_int=rand.nextInt(90000);
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-       String fname=request.getParameter("fname");
-       String lname=request.getParameter("lname");
-       String id=request.getParameter("id");
-       String email=request.getParameter("email");
-       String gender=request.getParameter("gender");
-       String  dept=request.getParameter("dept");
+
+
+       String id = request.getParameter("id");
        String password1=request.getParameter("password1");
        String password2=request.getParameter("password2");
+       String email = request.getParameter("email");
+       String fname = request.getParameter("fname");
        String vcode=id+"_"+rand_int;
        Mailsend mail = new Mailsend();
-       System.out.println(fname+lname+id+email+gender+dept+password1+password2);
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        String from="sabilhasan2018@gmail.com";
-        String pass="sormi00000";
-        String to ="sabilhasan1999@gmail.com";
-        String sub="! MASKUR";
-        String mess="FRom MBSTU?";
-        Mailer.send(from,pass,to,sub,mess);
 
         if(password1.equals(password2))
         {
+            HttpSession session =request.getSession();
+            session.setAttribute("verificationCode",vcode);
+            session.setAttribute("fname",request.getParameter("fname"));
+            session.setAttribute("lname",request.getParameter("lname"));
+            session.setAttribute("id",request.getParameter("id"));
+            session.setAttribute("email",request.getParameter("email"));
+            session.setAttribute("gender",request.getParameter("gender"));
+            session.setAttribute("dept",request.getParameter("dept"));
+            session.setAttribute("password",request.getParameter("password1"));
            String  msg="Welcome "+fname +" in MBSTU medical use this verification code : "+vcode;
+           Mailer.send(from,pass,email,sub,msg);
             System.out.println(msg);
+
             RequestDispatcher rd=request.getRequestDispatcher("verification.jsp");
+
             rd.include(request,response);
         }
         else {

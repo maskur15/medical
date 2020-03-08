@@ -10,7 +10,7 @@ public class DatabaseDao {
     private Connection con = null;
     public void DbConnect()
     {
-        String url = "jdbc:mysql://localhost:3306/maskur?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        String url = "jdbc:mysql://localhost:3306/medical?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
         try {
             Class.forName("com.mysql.jdbc.Driver");
             String username="root";
@@ -31,16 +31,17 @@ public class DatabaseDao {
     }
     public  void insert(String fname,String lname,String id,String dept,String gender,String mail,String pass)
     {
+        DbConnect();
         try{
             Statement st=con.createStatement();
             PreparedStatement pst=con.prepareStatement("insert into student values(?,?,?,?,?,?,?)");
             pst.setString(1,fname);
             pst.setString(2,lname);
-            pst.setString(1,id);
-            pst.setString(1,dept);
-            pst.setString(1,gender);
-            pst.setString(1,mail);
-            pst.setString(1,pass);
+            pst.setString(3,id);
+            pst.setString(4,dept);
+            pst.setString(5,gender);
+            pst.setString(6,mail);
+            pst.setString(7,pass);
             pst.executeUpdate();
             System.out.println("Data inserted");
         }
