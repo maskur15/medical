@@ -42,12 +42,7 @@ public class SendMailSSL{
     public static void main(String[] args) {
 
         //from,password,to,subject,message
-        String from="sabilhasan2018@gmail.com";
-        String pass="sormi00000";
-        String to ="sabilhasan1999@gmail.com";
-        String sub="!subject";
-        String mess="Message?";
-        Mailer.send(from,pass,to,sub,mess);
+
         //change from, password and to
     }
 }

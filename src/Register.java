@@ -20,7 +20,7 @@ import java.util.Random;
 public class Register extends HttpServlet{
     //from,password,to,subject,message
     final String from="sabilhasan2018@gmail.com";
-    final String pass="sormi00000";
+    final String Epass="password";
     final String sub="MBSTU_MEDICAL registration";
 
     Random rand = new Random();
@@ -34,7 +34,6 @@ public class Register extends HttpServlet{
        String email = request.getParameter("email");
        String fname = request.getParameter("fname");
        String vcode=id+"_"+rand_int;
-       Mailsend mail = new Mailsend();
 
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -42,6 +41,7 @@ public class Register extends HttpServlet{
         if(password1.equals(password2))
         {
             HttpSession session =request.getSession();
+
             session.setAttribute("verificationCode",vcode);
             session.setAttribute("fname",request.getParameter("fname"));
             session.setAttribute("lname",request.getParameter("lname"));
@@ -50,8 +50,10 @@ public class Register extends HttpServlet{
             session.setAttribute("gender",request.getParameter("gender"));
             session.setAttribute("dept",request.getParameter("dept"));
             session.setAttribute("password",request.getParameter("password1"));
+            session.setAttribute("from",from);
+            session.setAttribute("Epassword",Epass);
            String  msg="Welcome "+fname +" in MBSTU medical use this verification code : "+vcode;
-           Mailer.send(from,pass,email,sub,msg);
+           Mailer.send(from,Epass,email,sub,msg);
             System.out.println(msg);
 
             RequestDispatcher rd=request.getRequestDispatcher("verification.jsp");

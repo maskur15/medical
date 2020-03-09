@@ -12,6 +12,8 @@ import java.io.IOException;
  */
 @WebServlet(name = "VerifyEmail")
 public class VerifyEmail extends HttpServlet {
+    final  String sub=" MBSTU_MEDICAL " ;
+      String mess=" you have succesfully registerd ";
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String verificationCode=request.getParameter("verificationCode");
         HttpSession session = request.getSession();
@@ -31,6 +33,9 @@ public class VerifyEmail extends HttpServlet {
            String password = (String) session.getAttribute("password");
 
            db.insert(fname,lname,id,dept,gender,email,password);
+            mess = "welcome "+ fname + mess;
+           Mailer.send((String)session.getAttribute("from"),(String)session.getAttribute("Epassword"),email,sub,mess);
+
            RequestDispatcher rd=request.getRequestDispatcher("login.jsp");
            rd.include(request,response);
            System.out.println("register successfully");

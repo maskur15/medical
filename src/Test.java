@@ -5,7 +5,7 @@ public class Test {
     public static void main(String args[])
     {
       DatabaseDao db= new DatabaseDao();
-      db.DbConnect();
-      db.insert("maskur","al","IT18021","ict","Male","password@gmail.com","pass");
+
+       db.getData("sabilhasan1999@gmail.com","123456789");
     }
 }

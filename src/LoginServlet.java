@@ -12,14 +12,16 @@ import java.io.IOException;
 @WebServlet(name = "LoginServlet")
 public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String email=request.getParameter("email");
+        String password= request.getParameter("password");
+        DatabaseDao db=new DatabaseDao();
+        db.getData(email,password);
+        RequestDispatcher rd=request.getRequestDispatcher("home.jsp");
+        rd.include(request,response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name=request.getParameter("name");
-        String password= request.getParameter("password");
-        RequestDispatcher rd=request.getRequestDispatcher("home.jsp");
-        rd.forward(request,response);
+
 
     }
 }
