@@ -50,13 +50,45 @@ public class DatabaseDao {
         }
 
     }
-    public void getData(String email,String password)
+    public boolean isCorrect(String id,String password)
     {
         try {
+
             DbConnect();
-            String email1= '"' + email + '"';
+            String id1= '"' + id + '"';
             String password1= '"' + password + '"';
-            String sql = "select *from student where mail = "+email1 +" and password = " + password1 ;
+            String sql = "select *from student where id  = "+id1 +" and password = " + password1 ;
+            Statement st = con.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            if(rs.next()==false)
+            {
+                rs.close();
+                con.close();
+                System.out.println("null values fonud");
+                return  false;
+            }
+            rs.close();
+            con.close();
+
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+            System.out.println("Database error");
+        }
+        System.out.println("true value found");
+        return true;
+    }
+
+    public void getData(String id,String password)
+    {
+        try {
+            Student s1 = new Student();
+
+            DbConnect();
+            String id1= '"' + id + '"';
+            String password1= '"' + password + '"';
+            String sql = "select *from student where id  = "+id1 +" and password = " + password1 ;
             Statement st = con.createStatement();
             ResultSet rs = st.executeQuery(sql);
             if(rs==null)
@@ -68,11 +100,11 @@ public class DatabaseDao {
                 {
                     String fname=rs.getString("fname");
                     String lname =rs.getString("lname");
-                    String id=rs.getString("id");
+                    String id2=rs.getString("id");
                     String dept=rs.getString("dept");
                     String gender=rs.getString("gender");
                     String pass=rs.getString("password");
-                    System.out.println(fname+lname+id+dept+gender+pass);
+                    System.out.println(fname+lname+id2+dept+gender+pass);
                 }
 
             }
