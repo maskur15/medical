@@ -3,7 +3,7 @@
 <jsp:include page="topHead.jsp"></jsp:include>
 <body>
 <!-- header -->
-<jsp:include page="header.jsp"></jsp:include>
+<jsp:include page="homeHeader.jsp"></jsp:include>
 <jsp:include page="homeHead.jsp"></jsp:include>
 
 <!-- banner-bottom -->
