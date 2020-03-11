@@ -1,0 +1,27 @@
+
+<web-app>
+<servlet>
+    <servlet-name>register</servlet-name>
+    <servlet-class>Register</servlet-class>
+</servlet>
+    <servlet-mapping>
+        <servlet-name>register</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>verify</servlet-name>
+        <servlet-class>VerifyEmail</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>verify</servlet-name>
+        <url-pattern>/verify</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>log</servlet-name>
+        <servlet-class>LoginServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>log</servlet-name>
+        <url-pattern>/profile</url-pattern>
+    </servlet-mapping>
+</web-app>
