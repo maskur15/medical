@@ -20,7 +20,8 @@ public class LoginServlet extends HttpServlet {
 
         if(db.isCorrect(id,password))
         {
-            request.setAttribute("id",id);
+
+            request.getSession().setAttribute("id",id);
             db.getData(id,password);
              request.getRequestDispatcher("home.jsp").forward(request,response);
             System.out.println("valid user");
@@ -28,7 +29,7 @@ public class LoginServlet extends HttpServlet {
         }
         else
         {
-            request.setAttribute("id",null);
+
             RequestDispatcher rd=request.getRequestDispatcher("home.jsp");
             rd.include(request,response);
             System.out.println("not valid user");
