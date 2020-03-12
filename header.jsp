@@ -66,7 +66,7 @@
                         <li><a href="mobile-app.html">App</a></li>
 
                         <%
-                            Object message =request.getAttribute("id");
+                            String message = (String)  request.getSession().getAttribute("id");
                             if(message!=null){
                         %>
                         <li><a href="user.jsp"><%=message%></a></li>
@@ -74,7 +74,7 @@
                             }
                         %>
                         <%
-                            Object message1 =request.getAttribute("id");
+                            String message1 = (String)  request.getSession().getAttribute("id");
                             if(message1==null){
                         %>
                         <li><a href="login.jsp">Login</a></li>
