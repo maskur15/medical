@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.swing.*;
 import java.io.IOException;
 
 /**
@@ -30,8 +31,9 @@ public class LoginServlet extends HttpServlet {
         else
         {
 
-            RequestDispatcher rd=request.getRequestDispatcher("home.jsp");
-            rd.include(request,response);
+
+            request.setAttribute("errorMessage", "Invalid user or password");
+            request.getRequestDispatcher("login.jsp").forward(request,response);
             System.out.println("not valid user");
         }
 
