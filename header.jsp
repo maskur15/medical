@@ -34,7 +34,7 @@
         <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
             <ul class="nav navbar-nav nav_1">
                 <li class="current_page"><a href="home.jsp">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="about.jsp">About</a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lab<span class="caret"></span></a>
                     <ul class="dropdown-menu drop_menu" role="menu">
@@ -47,7 +47,7 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Book Test<span class="caret"></span></a>
                     <ul class="dropdown-menu drop_menu" role="menu">
-                        <li><a href="book-a-test.html">Book a Test</a></li>
+                        <li><a href="bookTest.jsp">Book a Test</a></li>
                         <li><a href="test-list.html">Test Menu</a></li>
                     </ul>
                 </li>
@@ -87,8 +87,8 @@
                         <li><a href="privacy_policy.html">Privacy Policy</a></li>
                     </ul>
                 </li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="blog.jsp">Blog</a></li>
+                <li><a href="contact.jsp">Contact</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div>
